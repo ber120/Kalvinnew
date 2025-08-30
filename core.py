@@ -28,6 +28,15 @@ from pytube import Playlist  #Youtube Playlist Extractor
 from yt_dlp import YoutubeDL
 import yt_dlp as youtube_dl
 
+# ✅ Added for Classplus (cp) API support
+def get_mps_and_keys(api_url):
+    response = requests.get(api_url)
+    response_json = response.json()
+    mpd = response_json.get('MPD')
+    keys = response_json.get('KEYS')
+    return mpd, keys
+
+    
 # Same AES Key aur IV jo encryption ke liye use kiya tha
 KEY = b'^#^#&@*HDU@&@*()'   
 IV = b'^@%#&*NSHUE&$*#)'   
